@@ -40,7 +40,7 @@ public class MainWindowController {
     void onSymbolClicked(MouseEvent event) {
         String symbol = ((Pane)event.getSource()).getId().replace("btn","");
         if(symbol.equals("Equals")) {
-            double num2 = Double.parseDouble(lblResult.getText());
+            int num2 = Integer.parseInt(lblResult.getText());
             switch (operator) {
                 case "+" -> lblResult.setText((num1+num2) + "");
                 case "-" -> lblResult.setText((num1-num2) + "");
@@ -50,8 +50,7 @@ public class MainWindowController {
             operator = ".";
         }
         else if(symbol.equals("Clear")) {
-            lblResult.setText(String.valueOf(0.0));
-            operator = ".";
+            lblResult.setText(String.valueOf(0));
         }
         else {
             switch (symbol) {
@@ -60,8 +59,8 @@ public class MainWindowController {
                 case "Multiply" -> operator = "*";
                 case "Divide" -> operator = "/";
             }
-            num1 = Double.parseDouble(lblResult.getText());
-            lblResult.setText(String.valueOf(0.0));
+            num1 = Integer.parseInt(lblResult.getText());
+            lblResult.setText(String.valueOf(0));
         }
     }
 }
